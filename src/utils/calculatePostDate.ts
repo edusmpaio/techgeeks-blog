@@ -10,15 +10,15 @@ export const calculatePostDate = (date: Date) => {
   let result = ''
 
   if (days > 0) {
-    result += `${days}d `
+    result += `${days} dias `
   }
 
   if (hours > 0) {
-    result += `${hours}h `
+    result += `${hours} horas `
   }
 
   if (minutes > 0) {
-    result += `${minutes}m `
+    result += `${minutes} minutos `
   }
 
   return result.trim()
