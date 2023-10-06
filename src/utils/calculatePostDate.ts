@@ -6,7 +6,7 @@ export const calculatePostDate = (date: Date) => {
   const remainingSeconds = diffSeconds % 86400 // Calculate the remaining seconds
   const hours = Math.floor(remainingSeconds / 3600)
   const minutes = Math.floor((remainingSeconds % 3600) / 60)
-
+  
   if (days > 0) {
     if (days > 1) {
       return `${days} dias `
