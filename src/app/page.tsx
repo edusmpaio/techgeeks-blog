@@ -61,12 +61,13 @@ export default async function Home() {
                     {post.properties.Conteúdo.rich_text[0].text.content}
                   </p>
                   <p className="text-sm text-muted-foreground/80">
+                    <span>Há {dateDiff}</span>
+                    <span className="px-1">•</span>
                     <span>
                       {readingTime < 1
-                        ? 'Menos de 1 minuto'
-                        : `${readingTime} minuto`}
+                        ? 'Menos de 1 min de leitura'
+                        : `${readingTime} min de leitura`}
                     </span>{' '}
-                    •<span>há {dateDiff}</span>
                   </p>
                 </Link>
               )
