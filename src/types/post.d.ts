@@ -12,24 +12,6 @@ interface File {
   }
 }
 
-interface RichText {
-  type: string
-  text: {
-    content: string
-    link: null
-  }
-  annotations: {
-    bold: boolean
-    italic: boolean
-    strikethrough: boolean
-    underline: boolean
-    code: boolean
-    color: string
-  }
-  plain_text: string
-  href: null
-}
-
 interface Title {
   type: string
   text: {
@@ -72,11 +54,6 @@ interface Post {
       id: string
       type: string
       files: File[]
-    }
-    Conteúdo: {
-      id: string
-      type: string
-      rich_text: RichText[]
     }
     Nome: {
       id: string
