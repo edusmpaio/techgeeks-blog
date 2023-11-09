@@ -6,7 +6,7 @@ import { calculatePostDate } from '@/utils/calculatePostDate'
 import { calculateReadingTime } from '@/utils/calculateReadingTime'
 
 export async function LastPosts() {
-  const databaseId = 'f15652bb6bb446b287d62ee7bdb91fb3'
+  const databaseId = process.env.NOTION_DATABASE_ID as string
   const response = await notion.databases.query({
     database_id: databaseId,
   })
