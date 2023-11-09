@@ -21,6 +21,13 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header />
         {children}
+        <footer className="border-t py-8 md:py-0">
+          <div className="container flex items-center justify-center md:h-24 md:justify-start">
+            <p className="text-center text-sm leading-relaxed text-muted-foreground md:text-left">
+              Blog da TechGeeks © 2023 • Todos os direitos reservados
+            </p>
+          </div>
+        </footer>
       </body>
     </html>
   )

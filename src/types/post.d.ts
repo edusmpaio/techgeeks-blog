@@ -50,6 +50,14 @@ interface Post {
       type: string
       select: null
     }
+    Slug: {
+      id: string
+      type: string
+      formula: {
+        type: string
+        string: string
+      }
+    }
     'Imagem Capa': {
       id: string
       type: string
