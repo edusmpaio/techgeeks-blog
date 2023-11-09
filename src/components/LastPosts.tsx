@@ -20,6 +20,8 @@ export async function LastPosts() {
     <div className="grid gap-9 md:grid-cols-2">
       {posts.map(async (post) => {
         const postId = post.id
+        const postSlug = post.properties.Slug.formula.string
+
         const postMDBlock = await n2m.pageToMarkdown(postId)
         const postMDString = n2m.toMarkdownString(postMDBlock)
         const postContent = postMDString.parent || ''
@@ -29,7 +31,7 @@ export async function LastPosts() {
         const image = post.properties['Imagem Capa'].files[0]?.file.url
 
         return (
-          <Link key={post.id} href="/">
+          <Link key={post.id} href={`/post/${postSlug}`}>
             <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-zinc-900">
               <div className="absolute h-full w-full bg-zinc-900/10" />
               {image && <Image src={image} alt="" width={700} height={450} />}
