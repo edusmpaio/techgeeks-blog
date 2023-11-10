@@ -55,7 +55,7 @@ export default async function Post({ params }: PostProps) {
         height={450}
       />
       <section className="min-w-5xl flex w-full flex-col">
-        <Markdown className="prose prose-lg w-full max-w-none lg:prose-xl prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl">
+        <Markdown className="prose prose-lg w-full max-w-none lg:prose-xl prose-h1:text-3xl prose-h2:text-primary prose-h3:text-xl prose-p:text-muted-foreground prose-strong:text-muted-foreground prose-li:text-muted-foreground">
           {mdString.parent}
         </Markdown>
       </section>
