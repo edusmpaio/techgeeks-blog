@@ -1,5 +1,7 @@
 import { Button } from '@/components/ui/button'
-import { LastPosts } from '@/components/LastPosts'
+import { Suspense } from 'react'
+import LastPostsSkeleton from '@/components/LastPosts/skeleton'
+import { LastPosts } from '@/components/LastPosts/page'
 
 export default function Home() {
   return (
@@ -27,7 +29,9 @@ export default function Home() {
             Últimas postagens
           </strong>
 
-          <LastPosts />
+          <Suspense fallback={<LastPostsSkeleton />}>
+            <LastPosts />
+          </Suspense>
         </div>
       </section>
     </main>
