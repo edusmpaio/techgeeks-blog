@@ -45,6 +45,11 @@ interface Post {
   }
   archived: boolean
   properties: {
+    Destaque: {
+      id: string
+      type: string
+      checkbox: boolean
+    }
     Status: {
       id: string
       type: string
