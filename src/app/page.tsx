@@ -2,6 +2,8 @@ import { Button } from '@/components/ui/button'
 import { Suspense } from 'react'
 import LastPostsSkeleton from '@/components/LastPosts/skeleton'
 import { LastPosts } from '@/components/LastPosts/page'
+import FeaturedPosts from '@/components/FeaturedPosts/page'
+import FeaturedPostsSkeleton from '@/components/FeaturedPosts/skeleton'
 
 export default function Home() {
   return (
@@ -24,14 +26,20 @@ export default function Home() {
       </section>
 
       <section>
-        <div className="container pb-16">
-          <strong className="mb-10 block text-2xl font-bold">
-            Últimas postagens
-          </strong>
-
-          <Suspense fallback={<LastPostsSkeleton />}>
-            <LastPosts />
+        <div className="container flex flex-col gap-32 pb-16">
+          <Suspense fallback={<FeaturedPostsSkeleton />}>
+            <FeaturedPosts key="Featured Posts" />
           </Suspense>
+
+          <div>
+            <strong className="mb-10 block text-2xl font-bold">
+              Últimas postagens
+            </strong>
+
+            <Suspense fallback={<LastPostsSkeleton />}>
+              <LastPosts />
+            </Suspense>
+          </div>
         </div>
       </section>
     </main>

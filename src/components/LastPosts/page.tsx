@@ -17,7 +17,7 @@ export async function LastPosts() {
   if (!posts) return null
 
   return (
-    <div className="grid gap-9 md:grid-cols-2">
+    <div className="grid gap-9 md:grid-cols-3">
       {posts.map(async (post) => {
         const postId = post.id
         const postSlug = post.properties.Slug.formula.string

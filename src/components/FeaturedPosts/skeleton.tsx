@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function LastPostsSkeleton() {
-  const numberOfSkeletons = 6
+export default function FeaturedPostsSkeleton() {
+  const numberOfSkeletons = 4
   return (
-    <div className="grid gap-9 md:grid-cols-3">
+    <div className="grid gap-9 md:grid-cols-2">
       {[...Array(numberOfSkeletons)].map((n) => (
         <div className="w-full" key={n}>
           <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-zinc-900">
