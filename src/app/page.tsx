@@ -26,7 +26,7 @@ export default function Home() {
       </section>
 
       <section>
-        <div className="container flex flex-col gap-32 pb-16">
+        <div className="container flex flex-col gap-24 pb-16">
           <Suspense fallback={<FeaturedPostsSkeleton />}>
             <FeaturedPosts key="Featured Posts" />
           </Suspense>
