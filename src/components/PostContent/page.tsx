@@ -35,7 +35,7 @@ export default async function PostContent({ slug }: { slug: string }) {
 
   return (
     <>
-      <div className="relative aspect-[auto_700/364] h-full min-h-[660px] w-full">
+      <div className="relative aspect-[auto_700/364] h-full w-full">
         <span className="absolute -z-10 h-full w-full animate-pulse rounded-xl bg-gray-300" />
         <Image
           src={imageLink}
