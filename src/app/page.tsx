@@ -4,6 +4,7 @@ import LastPostsSkeleton from '@/components/LastPosts/skeleton'
 import { LastPosts } from '@/components/LastPosts/page'
 import FeaturedPosts from '@/components/FeaturedPosts/page'
 import FeaturedPostsSkeleton from '@/components/FeaturedPosts/skeleton'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -18,8 +19,8 @@ export default function Home() {
               Explore o universo da tecnologia com as últimas notícias, análises
               e tendências no blog TechGeeks.
             </p>
-            <Button size="lg" className="md:text-lg">
-              Comece a ler
+            <Button size="lg" className="md:text-lg" asChild>
+              <Link href="/posts">Comece a ler</Link>
             </Button>
           </div>
         </div>
