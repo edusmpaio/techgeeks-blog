@@ -1,20 +1,20 @@
 import { Posts } from '@/components/Posts/page'
 import PostsSkeleton from '@/components/Posts/skeleton'
-import { Suspense } from 'react'
+import React, { Suspense } from 'react'
 
-export default function Post() {
+export default function NewsPage() {
   return (
-    <section>
+    <section className="min-h-[790px]">
       <div className="container flex flex-col">
         <div className="pb-16">
           <div className="flex items-center py-10">
             <strong className="block text-2xl font-bold md:text-3xl">
-              Todas as postagens
+              # Notícias
             </strong>
           </div>
 
           <Suspense fallback={<PostsSkeleton />}>
-            <Posts />
+            <Posts tags="news" />
           </Suspense>
         </div>
       </div>

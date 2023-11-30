@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function LastPostsSkeleton() {
+export default function PostsSkeleton() {
   const numberOfSkeletons = 6
   return (
     <div className="grid gap-9 md:grid-cols-3">
