@@ -6,10 +6,57 @@ import { calculatePostDate } from '@/utils/calculatePostDate'
 import { calculateReadingTime } from '@/utils/calculateReadingTime'
 import { NotionToMarkdown } from 'notion-to-md'
 
-export async function LastPosts() {
+export async function Posts({ tags }: { tags?: string }) {
   const databaseId = process.env.NOTION_DATABASE_ID as string
+  const newsFilter = {
+    property: 'tags',
+    multi_select: {
+      contains: 'Notícias',
+    },
+  }
+  const programmingFilter = {
+    property: 'tags',
+    multi_select: {
+      contains: 'Programação',
+    },
+  }
+  const gamesFilter = {
+    property: 'tags',
+    multi_select: {
+      contains: 'Games',
+    },
+  }
+  const filters = [
+    {
+      property: 'Status',
+      select: {
+        equals: 'Publicado',
+      },
+    },
+  ]
+  switch (tags) {
+    case 'news':
+      /* eslint-disable */
+      // @ts-ignore
+      filters.push(newsFilter)
+      break
+    case 'programming':
+      /* eslint-disable */
+      // @ts-ignore
+      filters.push(programmingFilter)
+      break
+    case 'games':
+      /* eslint-disable */
+      // @ts-ignore
+      filters.push(gamesFilter)
+      break
+  }
   const response = await notion.databases.query({
     database_id: databaseId,
+    page_size: 6,
+    filter: {
+      and: filters,
+    },
   })
   const posts = response.results as Post[]
   const n2m = new NotionToMarkdown({ notionClient: notion })

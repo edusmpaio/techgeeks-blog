@@ -55,6 +55,17 @@ interface Post {
       type: string
       select: null
     }
+    tags: {
+      id: string
+      type: string
+      multi_select: [
+        {
+          id: string
+          name: string
+          color: string
+        },
+      ]
+    }
     Slug: {
       id: string
       type: string

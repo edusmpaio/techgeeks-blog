@@ -16,15 +16,24 @@ export function Header() {
           </Link>
 
           <nav className="hidden items-center space-x-8 text-sm sm:flex">
-            <a href="#" className="text-foreground/60 hover:text-foreground/80">
+            <Link
+              href="/posts/news"
+              className="text-foreground/60 hover:text-foreground/80"
+            >
               Notícias
-            </a>
-            <a href="#" className="text-foreground/60 hover:text-foreground/80">
+            </Link>
+            <Link
+              href="/posts/programming"
+              className="text-foreground/60 hover:text-foreground/80"
+            >
               Programação
-            </a>
-            <a href="#" className="text-foreground/60 hover:text-foreground/80">
+            </Link>
+            <Link
+              href="/posts/games"
+              className="text-foreground/60 hover:text-foreground/80"
+            >
               Games
-            </a>
+            </Link>
           </nav>
         </div>
 

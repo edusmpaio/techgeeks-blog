@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Suspense } from 'react'
-import LastPostsSkeleton from '@/components/LastPosts/skeleton'
-import { LastPosts } from '@/components/LastPosts/page'
+import LastPostsSkeleton from '@/components/Posts/skeleton'
+import { Posts } from '@/components/Posts/page'
 import FeaturedPosts from '@/components/FeaturedPosts/page'
 import FeaturedPostsSkeleton from '@/components/FeaturedPosts/skeleton'
 import Link from 'next/link'
@@ -38,7 +38,7 @@ export default function Home() {
             </strong>
 
             <Suspense fallback={<LastPostsSkeleton />}>
-              <LastPosts />
+              <Posts />
             </Suspense>
           </div>
         </div>
