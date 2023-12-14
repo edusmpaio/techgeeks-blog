@@ -44,7 +44,15 @@ export default async function FeaturedPosts() {
             <Link key={`featured ${post.id}`} href={`/post/${postSlug}`}>
               <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-zinc-900">
                 <div className="absolute h-full w-full bg-zinc-900/10" />
-                {image && <Image src={image} alt="" width={700} height={450} />}
+                {image && (
+                  <Image
+                    unoptimized
+                    src={image}
+                    alt=""
+                    width={700}
+                    height={450}
+                  />
+                )}
               </div>
               <div className="mt-8 flex flex-col justify-between">
                 <strong className="mb-2 block text-xl sm:max-md:text-2xl lg:text-2xl">
