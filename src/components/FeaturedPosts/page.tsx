@@ -14,7 +14,7 @@ export default function FeaturedPosts() {
   useEffect(() => {
     if (databaseId) {
       const getNotionPosts = async () => {
-        const response = await notion.databases.query({
+        const { results } = await notion.databases.query({
           database_id: databaseId,
           filter: {
             property: 'Destaque',
@@ -23,7 +23,7 @@ export default function FeaturedPosts() {
             },
           },
         })
-        setPosts(response.results as Post[])
+        setPosts(results as Post[])
       }
       getNotionPosts()
     }
