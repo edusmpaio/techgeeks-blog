@@ -35,7 +35,7 @@ export default async function PostContent({ slug }: { slug: string }) {
 
   return (
     <>
-      <div className="relative aspect-[auto_700/364] h-full w-full">
+      <div className="relative aspect-[auto_700/364] h-full min-h-[660px] w-full">
         <span className="absolute -z-10 h-full w-full animate-pulse rounded-xl bg-gray-300" />
         <Image
           src={imageLink}
@@ -46,7 +46,7 @@ export default async function PostContent({ slug }: { slug: string }) {
         />
       </div>
       <section className="min-w-5xl flex w-full flex-col">
-        <Markdown className="prose prose-lg w-full max-w-none lg:prose-xl prose-h1:text-3xl prose-h2:text-primary prose-h3:text-xl prose-p:text-muted-foreground prose-strong:text-muted-foreground prose-li:text-muted-foreground">
+        <Markdown className="prose prose-lg w-full max-w-none lg:prose-xl marker:font-bold marker:text-primary prose-h1:text-3xl prose-h2:text-primary prose-h3:text-xl prose-p:text-muted-foreground prose-strong:text-primary prose-li:text-muted-foreground">
           {mdString.parent}
         </Markdown>
       </section>
