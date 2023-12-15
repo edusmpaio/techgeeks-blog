@@ -6,9 +6,12 @@ interface User {
 interface File {
   name: string
   type: string
-  file: {
+  file?: {
     url: string
     expiry_time: string
+  }
+  external?: {
+    url: string
   }
 }
 
