@@ -4,11 +4,31 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'prod-files-secure.s3.us-west-2.amazonaws.com',
+        hostname: '**',
         port: '',
       },
     ],
   },
+  headers: () => [
+    {
+      source: '/',
+      headers: [
+        {
+          key: 'Cache-Control',
+          value: 'no-store',
+        },
+      ],
+    },
+    {
+      source: '/posts',
+      headers: [
+        {
+          key: 'Cache-Control',
+          value: 'no-store',
+        },
+      ],
+    },
+  ],
 }
 
 export default nextConfig

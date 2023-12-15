@@ -1,33 +1,23 @@
-'use client'
-
 import { notion } from '@/utils/api'
 import { calculatePostDate } from '@/utils/calculatePostDate'
 import { calculateReadingTime } from '@/utils/calculateReadingTime'
 import Image from 'next/image'
 import Link from 'next/link'
 import { NotionToMarkdown } from 'notion-to-md'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
-export default function FeaturedPosts() {
+export default async function FeaturedPosts() {
   const databaseId = process.env.NOTION_DATABASE_ID as string
-  const [posts, setPosts] = useState<Post[] | null>(null)
-  useEffect(() => {
-    if (databaseId) {
-      const getNotionPosts = async () => {
-        const { results } = await notion.databases.query({
-          database_id: databaseId,
-          filter: {
-            property: 'Destaque',
-            checkbox: {
-              equals: true,
-            },
-          },
-        })
-        setPosts(results as Post[])
-      }
-      getNotionPosts()
-    }
-  }, [databaseId])
+  const response = await notion.databases.query({
+    database_id: databaseId,
+    filter: {
+      property: 'Destaque',
+      checkbox: {
+        equals: true,
+      },
+    },
+  })
+  const posts = response.results as Post[]
   const n2m = new NotionToMarkdown({ notionClient: notion })
 
   if (!posts || posts.length < 1) return null
@@ -48,7 +38,12 @@ export default function FeaturedPosts() {
 
           const dateDiff = calculatePostDate(new Date(post.created_time))
           const readingTime = calculateReadingTime(postMDString.parent)
-          const image = post.properties['Imagem Capa'].files[0]?.file.url
+          const file = post.properties['Imagem Capa'].files[0]?.file
+          let image = file?.url
+
+          if (!image) {
+            image = post.properties['Imagem Capa'].files[0].external?.url
+          }
 
           return (
             <Link key={`featured ${post.id}`} href={`/post/${postSlug}`}>
