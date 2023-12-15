@@ -38,7 +38,12 @@ export default async function FeaturedPosts() {
 
           const dateDiff = calculatePostDate(new Date(post.created_time))
           const readingTime = calculateReadingTime(postMDString.parent)
-          const image = post.properties['Imagem Capa'].files[0]?.file.url
+          const file = post.properties['Imagem Capa'].files[0]?.file
+          let image = file?.url
+
+          if (!image) {
+            image = post.properties['Imagem Capa'].files[0].external?.url
+          }
 
           return (
             <Link key={`featured ${post.id}`} href={`/post/${postSlug}`}>
