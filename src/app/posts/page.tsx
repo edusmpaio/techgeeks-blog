@@ -2,6 +2,8 @@ import { Posts } from '@/components/Posts/page'
 import PostsSkeleton from '@/components/Posts/skeleton'
 import { Suspense } from 'react'
 
+export const dynamic = 'force-dynamic'
+
 export default function Post() {
   return (
     <section>
