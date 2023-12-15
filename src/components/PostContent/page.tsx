@@ -25,7 +25,11 @@ export default async function PostContent({ slug }: { slug: string }) {
     redirect('/')
   }
 
-  const imageLink = matchingPost.properties['Imagem Capa'].files[0]?.file.url
+  const file = matchingPost.properties['Imagem Capa'].files[0].file
+  let image = file?.url
+  if (!image) {
+    image = matchingPost.properties['Imagem Capa'].files[0].external?.url
+  }
 
   const n2m = new NotionToMarkdown({ notionClient: notion })
   const postId = matchingPost.id
@@ -37,13 +41,15 @@ export default async function PostContent({ slug }: { slug: string }) {
     <>
       <div className="relative aspect-[auto_700/364] h-full min-h-[660px] w-full">
         <span className="absolute -z-10 h-full w-full animate-pulse rounded-xl bg-gray-300" />
-        <Image
-          src={imageLink}
-          className="aspect-[auto_700/364] w-full rounded-xl"
-          alt=""
-          width={700}
-          height={450}
-        />
+        {image && (
+          <Image
+            src={image}
+            className="aspect-[auto_700/364] w-full rounded-xl"
+            alt=""
+            width={700}
+            height={450}
+          />
+        )}
       </div>
       <section className="min-w-5xl flex w-full flex-col">
         <Markdown className="prose prose-lg w-full max-w-none lg:prose-xl marker:font-bold marker:text-primary prose-h1:text-3xl prose-h2:text-primary prose-h3:text-xl prose-p:text-muted-foreground prose-strong:text-primary prose-li:text-muted-foreground">
