@@ -6,7 +6,7 @@ import FeaturedPosts from '@/components/FeaturedPosts/page'
 import FeaturedPostsSkeleton from '@/components/FeaturedPosts/skeleton'
 import Link from 'next/link'
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 120
 
 export default function Home() {
   return (

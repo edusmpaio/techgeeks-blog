@@ -2,7 +2,7 @@ import { Posts } from '@/components/Posts/page'
 import PostsSkeleton from '@/components/Posts/skeleton'
 import React, { Suspense } from 'react'
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 120
 
 export default function GamesPage() {
   return (

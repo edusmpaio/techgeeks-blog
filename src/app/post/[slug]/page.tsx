@@ -8,6 +8,8 @@ interface PostProps {
   }
 }
 
+export const revalidate = 120
+
 export default function Post({ params }: PostProps) {
   const { slug } = params
 
